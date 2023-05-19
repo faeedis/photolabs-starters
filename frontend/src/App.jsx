@@ -1,16 +1,14 @@
 import React from 'react';
 
-import PhotoList from './components/PhotoList';
-import PhotoFavButton from './components/PhotoFavButton';
-import TopicList from './components/TopicList';
+import HomeRoute from './routes/HomeRoute';
 import './App.scss';
+
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   return (
     <div className="App">
-      <TopicList />
-      <PhotoList />
+      <HomeRoute />
     </div>
   )
 }
