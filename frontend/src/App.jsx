@@ -16,8 +16,19 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute photos={photosList} topics={topicsList} setDisplayPhoto={setDisplayPhoto} setBigPhoto={setBigPhoto}/>
-      {displayPhoto && <PhotoDetailsModal bigPhoto={bigPhoto} /> }
+      <HomeRoute 
+        photos={photosList} 
+        topics={topicsList} 
+        setDisplayPhoto={setDisplayPhoto} 
+        setBigPhoto={setBigPhoto}
+      />
+      {
+        displayPhoto && <PhotoDetailsModal 
+                          bigPhoto={bigPhoto} 
+                          setDisplayPhoto={setDisplayPhoto} 
+                          setBigPhoto={setBigPhoto} 
+                        /> 
+      }
     </div>
   )
 }
