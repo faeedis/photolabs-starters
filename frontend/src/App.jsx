@@ -12,7 +12,7 @@ const App = () => {
   const photosList = Object.values(photoData);
   const topicsList = Object.values(topicData);
   const [displayPhoto, setDisplayPhoto] = useState(false);
-  const [bigPhoto, setBigPhoto] = useState({});
+  const [bigPhoto, setBigPhoto] = useState(null);
 
   return (
     <div className="App">
@@ -27,6 +27,7 @@ const App = () => {
                           bigPhoto={bigPhoto} 
                           setDisplayPhoto={setDisplayPhoto} 
                           setBigPhoto={setBigPhoto} 
+                          photosList={photosList}
                         /> 
       }
     </div>

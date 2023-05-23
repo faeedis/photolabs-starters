@@ -5,8 +5,11 @@ import '../styles/PhotoDetailsModal.scss'
 export const PhotoDetailsModal = (props) => {
   const handleClose = () => {
     props.setDisplayPhoto(false);
-    props.setBigPhoto({});
+    props.setBigPhoto(null);
   }
+
+  const image = props.photosList.find(photo => photo.id === props.bigPhoto);
+  console.log("Image="+image.urls.full);
   return (
     <div className='photo-details-modal' onClick={handleClose}>
       <button className='photo-details-modal--close-button'>
@@ -22,6 +25,10 @@ export const PhotoDetailsModal = (props) => {
           </defs>
         </svg>
       </button>
+      <div className="photo-details-modal--images">
+        <img className="photo-details-modal--image" src={image.urls.full}></img>
+        <header className="photo-details-modal--header">Similar Photos</header>
+      </div>
     </div>
   )
 }
