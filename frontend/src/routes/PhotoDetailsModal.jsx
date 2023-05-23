@@ -12,11 +12,8 @@ export const PhotoDetailsModal = (props) => {
   const photosLst = props.photosList;
   const image = photosLst.find(photo => photo.id === props.bigPhoto);
 
-  const photos = photosLst.filter(
-    (obj, index) =>
-      photosLst.findIndex(
-        (item) => item.urls.full === image.urls.full && item.urls.full=== obj.urls.full) === index
-  )
+  const photos = photosLst.filter(item => {return item.urls.full === image.urls.full && item.id !== props.bigPhoto});
+
   return (
     <div className='photo-details-modal'>
       <button className='photo-details-modal--close-button'  onClick={handleClose}>
@@ -34,7 +31,7 @@ export const PhotoDetailsModal = (props) => {
       </button>
       <div className="photo-details-modal--images">
         <div  className="photo-list--item">
-          <PhotoFavButton id={props.bigPhoto} likes={props.likes} setLikes={props.setLikes} />
+          <PhotoFavButton id={props.bigPhoto} likes={props.likes} setLikes={props.setLikes} displayPhoto={props.displayPhoto} />
           <img src={image.urls.full} className='photo-details-modal--image'/>
         </div>
         <header className="photo-details-modal--header">Similar Photos</header>

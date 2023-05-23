@@ -8,15 +8,19 @@ function PhotoFavButton(props) {
   const [favorite, setFavorite] = useState(false);
   const handleClick = () => {
     if(props.displayPhoto) {
-      setFavorite(true)
-    } else{
-      setFavorite(favorite ? false : true);
+      if(favorite) {
+        setFavorite(true);
+      } else {
+        setFavorite(false);
+      }
     } 
 
     if (favorite) {
       props.setLikes(prev => prev - 1);
+      setFavorite(favorite ? false : true);
     } else {
       props.setLikes(prev => prev + 1);
+      setFavorite(true);
     }
   }
 
