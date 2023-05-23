@@ -4,13 +4,22 @@ import { FavIcon } from './FavIcon';
 import { FavBadge } from './FavBadge';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
-  const [state, setState] = useState(false);
-  const fav = () => setState(state ? false : true);
+function PhotoFavButton(props) {
+  const [favorite, setFavorite] = useState(false);
+  const handleClick = () => {
+    setFavorite(favorite ? false : true);
+
+    if (favorite) {
+      props.setLikes(prev => prev - 1);
+    } else {
+      props.setLikes(prev => prev + 1);
+    }
+  };
+
   return (
-    <div className="photo-list--fav-icon" onClick={fav}>
+    <div className="photo-list--fav-icon" onClick={handleClick}>
       <div className="photo-list--fav-icon-svg">
-        {state ? <FavBadge/> : <FavIcon/>} 
+        {favorite ? <FavBadge/> : <FavIcon/>} 
       </div>
     </div>
   );

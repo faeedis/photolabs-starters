@@ -4,7 +4,7 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-  const {photos} = props;
+  const {photos, likes, setLikes} = props;
  
   const images = photos.map((image)=> {
     return (
@@ -14,14 +14,16 @@ const PhotoList = (props) => {
           imageSource={image.urls.full} 
           hideUserName={false} 
           userName={image.user.userName}
+          likes={likes}
+          setLikes={setLikes}
       />
     );
   });
 
   return (
-    <div className="photo-list">
+    <ul className="photo-list">
       {images}
-    </div>
+    </ul>
   );
 }
 
