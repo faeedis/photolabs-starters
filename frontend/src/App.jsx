@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import HomeRoute from './routes/HomeRoute';
 import photoData from './mocks/photos';
 import topicData from './mocks/topics';
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import './App.scss';
 
 
@@ -10,9 +11,13 @@ import './App.scss';
 const App = () => {
   const photosList = Object.values(photoData);
   const topicsList = Object.values(topicData);
+  const [displayPhoto, setDisplayPhoto] = useState(false);
+  const [bigPhoto, setBigPhoto] = useState({});
+
   return (
     <div className="App">
-      <HomeRoute photos={photosList} topics={topicsList} />
+      <HomeRoute photos={photosList} topics={topicsList} setDisplayPhoto={setDisplayPhoto} setBigPhoto={setBigPhoto}/>
+      {displayPhoto && <PhotoDetailsModal bigPhoto={bigPhoto} /> }
     </div>
   )
 }
