@@ -4,7 +4,7 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-  const {photos, likes, setLikes, setDisplayPhoto,setBigPhoto} = props;
+  const {photos, likes, setLikes, displayPhoto, setDisplayPhoto,setBigPhoto} = props;
  
   const images = photos.map((image)=> {
     return (
@@ -16,6 +16,7 @@ const PhotoList = (props) => {
           userName={image.user.userName}
           likes={likes}
           setLikes={setLikes}
+          displayPhoto={displayPhoto}
           setDisplayPhoto={setDisplayPhoto}
           setBigPhoto={setBigPhoto}
       />

@@ -20,6 +20,7 @@ const App = () => {
       <HomeRoute 
         photos={photosList} 
         topics={topicsList} 
+        displayPhoto={displayPhoto}
         setDisplayPhoto={setDisplayPhoto} 
         setBigPhoto={setBigPhoto}
         likes={likes}
@@ -28,6 +29,7 @@ const App = () => {
       {
         displayPhoto && <PhotoDetailsModal 
                           bigPhoto={bigPhoto} 
+                          displayPhoto={displayPhoto}
                           setDisplayPhoto={setDisplayPhoto} 
                           setBigPhoto={setBigPhoto} 
                           photosList={photosList}

@@ -13,6 +13,7 @@ const HomeRoute = (props) =>  {
         photos={props.photos} 
         likes={ props.likes } 
         setLikes={ props.setLikes } 
+        displayPhoto={props.displayPhoto}
         setDisplayPhoto={props.setDisplayPhoto}
         setBigPhoto={props.setBigPhoto}
       />
