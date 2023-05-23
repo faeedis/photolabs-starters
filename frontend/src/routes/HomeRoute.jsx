@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 import '../styles/HomeRoute.scss';
@@ -6,14 +6,13 @@ import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) =>  {
-  const [likes, setLikes] = useState(0);
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} likes={ likes } />
+      <TopNavigation topics={props.topics} likes={ props.likes } />
       <PhotoList 
         photos={props.photos} 
-        likes={ likes } 
-        setLikes={ setLikes } 
+        likes={ props.likes } 
+        setLikes={ props.setLikes } 
         setDisplayPhoto={props.setDisplayPhoto}
         setBigPhoto={props.setBigPhoto}
       />

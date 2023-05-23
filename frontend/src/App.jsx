@@ -13,6 +13,7 @@ const App = () => {
   const topicsList = Object.values(topicData);
   const [displayPhoto, setDisplayPhoto] = useState(false);
   const [bigPhoto, setBigPhoto] = useState(null);
+  const [likes, setLikes] = useState(0);
 
   return (
     <div className="App">
@@ -21,6 +22,8 @@ const App = () => {
         topics={topicsList} 
         setDisplayPhoto={setDisplayPhoto} 
         setBigPhoto={setBigPhoto}
+        likes={likes}
+        setLikes={setLikes}
       />
       {
         displayPhoto && <PhotoDetailsModal 
@@ -28,6 +31,8 @@ const App = () => {
                           setDisplayPhoto={setDisplayPhoto} 
                           setBigPhoto={setBigPhoto} 
                           photosList={photosList}
+                          likes={likes}
+                          setLikes={setLikes}
                         /> 
       }
     </div>
