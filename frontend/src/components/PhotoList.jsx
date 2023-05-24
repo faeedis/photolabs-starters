@@ -12,8 +12,10 @@ const PhotoList = (props) => {
           key={image.id}
           id={image.id} 
           imageSource={image.urls.full} 
-          hideUserName={false} 
-          userName={image.user.userName}
+          user={image.user.name}
+          city={image.location.city}
+          country={image.location.country}
+          profile={image.user.profile}
           likes={likes}
           setLikes={setLikes}
           displayPhoto={displayPhoto}

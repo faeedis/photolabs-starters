@@ -16,9 +16,9 @@ const TopicList = (props) => {
   });
 
   return (
-    <div className="top-nav-bar--topic-list">
+    <ul className="top-nav-bar--topic-list">
       {topics}
-    </div>
+    </ul>
   );
 }
 
