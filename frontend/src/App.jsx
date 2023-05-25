@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import useApplicationData from './hooks/useApplicationData'; 
 import './App.scss';
+import axios from 'axios';
 
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
-    photosList,
-    topicsList,
+    photos,
+    setPhotos,
+    topics,
+    setTopics,
     displayPhoto,
     setDisplayPhoto,
     bigPhoto,
@@ -19,11 +22,25 @@ const App = () => {
     setLikes,
   } = useApplicationData(); 
 
+  useEffect(() => {
+    axios.get('http://localhost:8001/api/photos')
+    .then(res => {
+      setPhotos(res.data)
+    })
+  }, [])
+
+  useEffect(() => {
+    axios.get('http://localhost:8001/api/topics')
+    .then(res => {
+      setTopics(res.data)
+    })
+  }, [])
+
   return (
     <div className="App">
       <HomeRoute 
-        photos={photosList} 
-        topics={topicsList} 
+        photos={photos} 
+        topics={topics} 
         displayPhoto={displayPhoto}
         setDisplayPhoto={setDisplayPhoto} 
         setBigPhoto={setBigPhoto}
@@ -36,13 +53,14 @@ const App = () => {
                           displayPhoto={displayPhoto}
                           setDisplayPhoto={setDisplayPhoto} 
                           setBigPhoto={setBigPhoto} 
-                          photosList={photosList}
+                          photosList={photos}
                           likes={likes}
                           setLikes={setLikes}
                         /> 
       }
     </div>
   )
+  
 }
 
 export default App
