@@ -5,20 +5,16 @@ import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
-  const openPhoto = () => {
-    props.setDisplayPhoto(true)
-    props.setBigPhoto(props.id)
-  }
   return (
     <div  className="photo-list--item">
-      <PhotoFavButton key={props.id} likes={props.likes} setLikes={props.setLikes} displayPhoto={props.displayPhoto} />
-      <img src={props.imageSource} className='photo-list--image' onClick={openPhoto}/>
+      <PhotoFavButton id={props.id} likes={props.likes} favoritePhoto={props.favoritePhoto} />
+      <img src={props.urls.full} className='photo-list--image' onClick={() => props.openModal(props.id)} />
       <div className="photo-list--user-details">
-        <img className="photo-list--user-profile" src={props.profile} />
+        <img className="photo-list--user-profile" src={props.user.profile} />
         <div className="photo-list--user-info">
-          {props.user}
+          {props.user.name}
           <div className="photo-list--user-location">
-            {props.city}, {props.country}
+            {props.location.city}, {props.location.country}
           </div>
         </div>
       </div>

@@ -8,14 +8,16 @@ import PhotoList from '../components/PhotoList';
 const HomeRoute = (props) =>  {
   return (
     <div className="home-route" >
-      <TopNavigation topics={props.topics} likes={ props.likes } />
+      <TopNavigation 
+        topics={props.topics} 
+        likes={ props.likes } 
+        fetchTopicPhotos={props.fetchTopicPhotos}
+      />
       <PhotoList 
         photos={props.photos}
         likes={ props.likes } 
-        setLikes={ props.setLikes } 
-        displayPhoto={props.displayPhoto}
-        setDisplayPhoto={props.setDisplayPhoto}
-        setBigPhoto={props.setBigPhoto}
+        favoritePhoto={props.favoritePhoto}
+        openModal={props.openModal} 
       />
     </div>
   );

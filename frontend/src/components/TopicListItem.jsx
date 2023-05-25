@@ -4,8 +4,8 @@ import '../styles/TopicListItem.scss'
 
 const TopicListItem = (props) => {
   return (
-    <div className="topic-list--item">
-      <a href={props.link}><span>{props.label}</span></a>
+    <div className="topic-list--item" onClick={() => props.fetchTopicPhotos(props.id)}>
+      <span>{props.title}</span>
     </div>
   )
 }

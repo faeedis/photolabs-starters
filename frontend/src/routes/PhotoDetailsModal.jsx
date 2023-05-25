@@ -5,18 +5,11 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 export const PhotoDetailsModal = (props) => {
-  const handleClose = () => {
-    props.setDisplayPhoto(false);
-    props.setBigPhoto(null);
-  }
-  const photosLst = props.photosList;
-  const image = photosLst.find(photo => photo.id === props.bigPhoto);
-
-  const photos = photosLst.filter(item => {return item.urls.full === image.urls.full && item.id !== props.bigPhoto});
+  const image = props.photos.find(photo => photo.id === props.detailPhotoId);
 
   return (
     <div className='photo-details-modal'>
-      <button className='photo-details-modal--close-button'  onClick={handleClose}>
+      <button className='photo-details-modal--close-button'  onClick={props.closeModal}>
         <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_428_287)">
             <path d="M14.0625 3.9375L3.9375 14.0625" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
@@ -32,7 +25,7 @@ export const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal--images">
         <div>
           <div  className="photo-list--item">
-            <PhotoFavButton id={props.bigPhoto} likes={props.likes} setLikes={props.setLikes} displayPhoto={props.displayPhoto} />
+            <PhotoFavButton id={props.detailPhotoId} likes={props.likes} favoritePhoto={props.favoritePhoto} />
             <img src={image.urls.full} className='photo-details-modal--image'/>
           </div>
           <div className="photo-list--user-details">
@@ -42,14 +35,12 @@ export const PhotoDetailsModal = (props) => {
             </div>
           </div>
         </div>
-        <header className="photo-details-modal--header">Similar Photos</header>
+        <header className="photo-details-modal--header">Related Photos</header>
         <PhotoList 
-          photos={photos} 
+          photos={props.photos}
           likes={ props.likes } 
-          setLikes={ props.setLikes } 
-          displayPhoto={props.displayPhoto}
-          setDisplayPhoto={props.setDisplayPhoto}
-          setBigPhoto={props.setBigPhoto}
+          favoritePhoto={props.favoritePhoto}
+          openModal={props.openModal} 
         />
       </div>
     </div>

@@ -4,13 +4,12 @@ import '../styles/TopicList.scss';
 import TopicListItem from './TopicListItem';
 
 const TopicList = (props) => {
-   const topics = props.topicList.map((topic)=> {
+   const topics = props.topics.map((topic)=> {
     return (
       <TopicListItem 
           key={topic.id}
-          id={topic.id} 
-          label={topic.title} 
-          link={topic.slug} 
+          {...topic}
+          fetchTopicPhotos={props.fetchTopicPhotos}
       />
     );
   });
