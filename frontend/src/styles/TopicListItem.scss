@@ -1,9 +1,9 @@
-.topic-list__item {
+.topic-list--item {
   line-height: 24px;
   margin-left: 24px;
 }
 
-.topic-list__item span {
+.topic-list--item span {
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;
@@ -12,5 +12,6 @@
   &:hover {
     text-decoration: overline;
     color: #111;
+    cursor: pointer;
   }
 }
