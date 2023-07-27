@@ -8,10 +8,9 @@ const cors = require("cors");
 
 const app = express();
 
-const db = require("./db")
-
 const photos = require("./routes/photos");
 const topics = require("./routes/topics");
+const db = require("./db/index")
 
 function read(file) {
   return new Promise((resolve, reject) => {
@@ -35,7 +34,7 @@ module.exports = function application(
   app.use(helmet());
   app.use(bodyparser.json());
   app.use(express.static(path.join(__dirname, 'public')));
-
+  // TODO: update to topics and photos
   app.use("/api", photos(db));
   app.use("/api", topics(db));
 
