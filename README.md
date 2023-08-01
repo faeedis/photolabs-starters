@@ -53,4 +53,4 @@ npm start
 - Node
 - Webpack
 - SASS
-- Axios
+- Axioss
