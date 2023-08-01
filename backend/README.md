@@ -14,9 +14,9 @@ Copy the `.env.example` file to `.env.development` and fill in the necessary Pos
 
 ```
 PGHOST=localhost
-PGUSER=development
+PGUSER=labber
 PGDATABASE=photolabs_development
-PGPASSWORD=development
+PGPASSWORD=labber
 PGPORT=5432
 ```
 
@@ -28,8 +28,6 @@ Both of these achieve the same result.
 
 - Make a `GET` request to `/api/debug/reset` with `curl http://localhost:8001/api/debug/reset`.
 - Use the browser to navigate to `http://localhost:8001/api/debug/reset`.
-
-The `development` data is random. Each time we seed we expect to see different appointments.
 
 ## Run The Server
 
